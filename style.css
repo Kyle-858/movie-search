@@ -38,9 +38,14 @@ nav {
     padding-right: 100px;
 }
 
+.fa-bars {
+    display: none;
+}
+
 .nav__list--item {
     font-size: 24px;
     list-style-type: none;
+    padding: 6px, 0;
 }
 
 .nav__list--item:hover {
@@ -50,13 +55,18 @@ nav {
 .banner__img {
     height: 300px;
     object-fit: cover;
-    width: 100%;
+    object-position: center;
+    width: 100vw;
     position: relative;
+    overflow: hidden;
 }
 
 .banner {
     position: relative;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .title {
@@ -66,6 +76,7 @@ nav {
     transform: translate(-50%, -50%);
     z-index: 2;
     font-size: 80px;
+    text-align: center;
 }
 
 .banner__background {
@@ -137,7 +148,7 @@ nav {
 .movie__card {
     width: calc((100% - 72px) / 4);
     max-width: none;
-    height: 100px;
+    height: 150px;
     font-family: 'Roboto';
     font-size: 16px;
     color: white;
@@ -196,5 +207,49 @@ nav {
     width: 40vw;
     height: 40px;
     cursor: no-drop;
-    margin-bottom: 24px;
+    margin: 24px 0;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 44px;
+        max-width: none;
+    }
+    .banner {
+        height: 150px;
+    }
+    .banner__img, .banner__background {
+        height: 150px;
+    }
+    .nav__list {
+        padding-right: 0px;
+    }
+    .nav__list--item {
+        padding: 0 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner__img {
+        opacity: 0%;
+    }
+    .banner__background {
+        opacity: 100%;
+        background-color: #d13438;
+    }
+    .nav__list {
+        display: none;
+    }
+    .fa-bars {
+        display: block;
+        color: white;
+        font-size: 48px;
+        position: relative;
+        top: 25%;
+        right: 12px;
+        cursor: no-drop;
+    }
+    .movie__card {
+        width: 36%;
+    }
 }
