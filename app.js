@@ -61,3 +61,7 @@ function movieHTML(movie) {
         <p class="movie__year">${movie.Type}, ${movie.Year}</p>
     </div>`
 } 
+
+function filterMovies(event) {
+    getMovieData(movie.Year)
+}

@@ -31,6 +31,11 @@
                     required/>
                 <button class="search__btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
+            <select id="filter" onchange="filterMovies(event)" class="movie__filter">
+                <option value="" disabled selected>Sort</option>
+                <option value="NEWEST">Newest</option>
+                <option value="OLDEST">Oldest</option>
+            </select>
         </div>
     </section>
     <section id="movies">

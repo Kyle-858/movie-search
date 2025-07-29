@@ -126,6 +126,16 @@ nav {
     color: white;
 }
 
+.movie__filter {
+    border: none;
+    background-color: rgb(24, 24, 24);
+    color: white;
+    width: 100px;
+    height: 24px;
+    border-radius: 12px;
+    text-align: center;
+}
+
 /*MOVIES*/
 
 #movies .container {
@@ -227,6 +237,12 @@ nav {
     .nav__list--item {
         padding: 0 8px;
     }
+    #search__form {
+        width: 50%;
+    }
+    .movie__filter {
+        margin-left: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -251,5 +267,12 @@ nav {
     }
     .movie__card {
         width: 36%;
+    }
+    #search .row {
+        flex-direction: column;
+    }
+    #search__form {
+        width: 80%;
+        margin-bottom: 24px;
     }
 }
