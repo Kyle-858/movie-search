@@ -6,8 +6,8 @@ const searchForm = document.getElementById("search__form")
 const movieInput = document.getElementById("movie__input")
 
 searchForm.addEventListener("submit", (event) => {
-    (event).preventDefault()
-    const query = movieInput.value.trim()
+    (event).preventDefault() //stops from reloading
+    const query = movieInput.value
     if (query) {
         console.log("searching for: ", query)
         getMovieData(query)
@@ -28,8 +28,17 @@ async function getMovieData(query) {
     if (data.Search) {
         const top6 = data.Search.slice(0, 6)
         const html = top6.map(movieHTML).join("")
+        let showMoreBtn = ""
+
+        if (data.Search.length > 6) {
+            showMoreBtn = `
+            <div class="show__more--container">
+                <button class="show__more">Show More</button>
+            </div>`
+        }
+
         console.log("Generated HTML:", html)
-        MovieList.innerHTML = html
+        MovieList.innerHTML = html + showMoreBtn
     } else {
         MovieList.innerHTML = "<p>No results found</p>"
     }
@@ -38,10 +47,17 @@ async function getMovieData(query) {
     }
 }
 
+function truncateTitle(title, maxLength) {
+    return title.length > maxLength
+    ? title.slice(0, maxLength) + "..."
+    : title
+}
+
 function movieHTML(movie) {
+    const trimmedTitle = truncateTitle(movie.Title, 40)
     return `
     <div class="movie__card">
-                        <h4 class="movie__title">${movie.Title}</h4>
-                        <p class="movie__year">${movie.Year}</p>
-                    </div>`
+        <h4 class="movie__title">${trimmedTitle}</h4>
+        <p class="movie__year">${movie.Type}, ${movie.Year}</p>
+    </div>`
 } 

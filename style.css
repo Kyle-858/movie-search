@@ -43,6 +43,10 @@ nav {
     list-style-type: none;
 }
 
+.nav__list--item:hover {
+    text-decoration: underline;
+}
+
 .banner__img {
     height: 300px;
     object-fit: cover;
@@ -126,19 +130,31 @@ nav {
 
 .movies__list {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .movie__card {
-    width: calc(100% / 6);
-    max-width: 400px;
-    height: 180px;
+    width: calc((100% - 72px) / 4);
+    max-width: none;
+    height: 100px;
     font-family: 'Roboto';
-    color: black;
+    font-size: 16px;
+    color: white;
     padding: 12px;
-    margin: 0 12px;
+    margin: 12px;
     border-radius: 12px;
-    background-color: rgb(222, 222, 222);
+    background-color: rgb(24, 24, 24);
     box-shadow: 0px 8px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    transition: all 300ms ease;
+}
+
+.movie__card:hover {
+    transform: translateY(-8px);
+    cursor: pointer;
 }
 
 .loading__screen {
@@ -163,4 +179,22 @@ nav {
     font-size: 48px;
     padding: 12px;
     animation: spin 1s infinite;
+}
+
+.show__more--container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.show__more {
+    background-color: rgb(24, 24, 24);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    width: 40vw;
+    height: 40px;
+    cursor: no-drop;
+    margin-bottom: 24px;
 }
